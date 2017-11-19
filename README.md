@@ -4,7 +4,7 @@
 
 git pif is a simple utility to increase collaboration across github. 
 
-It simplifies the process of forking a repo. Cloning it. Pushing commits to it and finally creating a PR to original Repo.
+It simplifies the process of forking a repo. Cloning it. Pushing commits to it. Only step left for user is to create a PR to original Repo.
 
 The `git pif` does all the next steps:
 
@@ -78,7 +78,7 @@ origin	https://github.com/zmalik/git-pif (push)
 
 Everybody willing to do a Pull Request Cycle to a github repository. 
 
-But I made it out of frustration for **Go** developers. As in case of **Go** the path is also really important. So you cannot just fork a repository and clone it in another path. As it will mess up with the packages. You have to play with the remotes. And this tool intends to simplify that process.
+But I made it out specially for **Go** developers. As in case of **Go** the path is also really important. So you cannot just fork a repository and clone it in another path. As it will mess up with the packages. You have to play with the remotes. And this tool intends to simplify that process.
 
 
 
