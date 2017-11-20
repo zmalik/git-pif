@@ -1,8 +1,6 @@
 
 build:
 	go build
-test:
-	go test -v $(go list ./... | grep -v vendor)
 
 publish:
 	go get github.com/goreleaser/goreleaser

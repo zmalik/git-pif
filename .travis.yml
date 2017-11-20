@@ -5,9 +5,8 @@ go_import_path: github.com/zmalik/git-pif
 before_install:
   - go get github.com/mattn/goveralls
 script:
-- make test
+- go test -v $(go list ./... | grep -v vendor)
 - $GOPATH/bin/goveralls -service=travis-ci
-- make build
 after_success:
 - if [ -n "$TRAVIS_TAG" ]; then make publish; fi
 env:
