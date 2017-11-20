@@ -3,6 +3,7 @@ go:
 - 1.9.x
 go_import_path: github.com/zmalik/git-pif
 script:
+- make test
 - make build
 after_success:
 - if [ -n "$TRAVIS_TAG" ]; then make publish; fi
