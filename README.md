@@ -1,4 +1,7 @@
+ 
 # git pif
+
+![https://api.travis-ci.org/zmalik/git-pif.svg?branch=master](https://api.travis-ci.org/zmalik/git-pif.svg?branch=master) ![Go Report Card](https://goreportcard.com/badge/github.com/zmalik/git-pif) 
 
 **git pif** (**Push in Fork**)
 
