@@ -47,7 +47,7 @@ origin	https://github.com/zmalik/git-pif (fetch)
 origin	https://github.com/zmalik/git-pif (push)
 ```
 
-- The branch `my-fix` has been pushed to `octagen/gif-pif` and its remote is the `fork`. Which basically means that from now on `git push` in the `my-fix` will go the `fork`  
+- The branch `my-fix` has been pushed to `octagen/gif-pif` and its remote is the `fork`. Which basically means that from now on `git push` in the `my-fix` will go to the `fork`  
 
 ```
 ➜  git-pif git:(my-fix) cat .git/config

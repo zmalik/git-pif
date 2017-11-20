@@ -1,6 +1,11 @@
 language: go
 go:
-- 1.8.x
+- 1.9.x
 go_import_path: github.com/zmalik/git-pif
 script:
 - make build
+after_success:
+- if [ -n "$TRAVIS_TAG" ]; then make publish; fi
+env:
+  global:
+    secure: bj/rYaUtV/xVb5kcCtwBPzMcEPL3sdhrOs8/oUlBsfQVne8R8Qn3DjvmfOzVJ4Y0CYo2aVbKwVJ2G+IS9PxKI5PNhgcBKVWSxx2nHG+msWCSmH8f/Uezv0CgfWbJZNC6E7BYKw/kmI0EnC5o8cymCzwX1Tw5h3fY12HGiDkaAKu0WSz76clA4kcmhzrIcNDQaonEorbrpoySiIwYPwxHGMYpcXuYIrvCB1xny+gocz2Tku86HQWRLWuRkAAHMNEWQsIaYtvWgxmxvQJX8wD1faTJhyfnMPHgy825PdPBZbOSH7VunTa4oa4RfO+JPJ5U4fTwoyexpvUx+kKgUmThgpU3dGW6SRCcVvCwfdNGB8EL2Brkt8/YaLTzcAe/tiGsQZtmJfdHIa+2WKUQ9/0FOzclpg1Ov8PdpEGm+QtmkZvGY+dRQhQEY0vr9O5+72R0ddkZsh5R2eX9IX4bXD1uGhm03I9NTyDUg5L1Iu1v7UiP/hz8CbAXEpC3p6WUpQrsAwpafPA2AftPVx4YPvAbgHQL5VybWwVPYcXa+5HDhfTBM8+E98XsG2frjhUGGblUvEu19O3ETGLcHZGbd/bFj4Q/Bhq5kZMGlQhTdUkUuyFz4ykXTuQB/SL51fvFov8bCHkITgFvxxQJxp2oOhZ64fZvgEE8tpDoXbyGdDRzXGI=
