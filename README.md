@@ -82,7 +82,7 @@ origin	https://github.com/zmalik/git-pif (push)
 
 ## Who can use it?
 
-Everybody willing to do a Pull Request Cycle to a github repository. 
+Everybody willing to do a Pull Request Cycle to Github repository. 
 
 But I made it out specially for **Go** developers. As in case of **Go** the path is also really important. So you cannot just fork a repository and clone it in another path. As it will mess up with the packages. You have to play with the remotes. And this tool intends to simplify that process.
 

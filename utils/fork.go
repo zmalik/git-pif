@@ -38,7 +38,7 @@ func CreateFork() (owner, repo, userLogin string, err error) {
 		fmt.Printf("Fork %s/%s already exists\n", user.GetLogin(), repo)
 	} else {
 		fmt.Printf("Forking the repo %s/%s to %s/%s\n", owner, repo, user.GetLogin(), repo)
-		err = ForkRepo(ctx, client, owner, repo)
+		err = forkRepo(ctx, client, owner, repo)
 		if err == nil {
 			gitconfig.OriginURL()
 			_, err := pollRepo(ctx, client, user.GetLogin(), repo, 5*time.Minute)
@@ -74,7 +74,7 @@ func pollRepo(ctx context.Context, client *github.Client, owner, repo string, du
 }
 
 //Fork the repo from the given owner and repo
-func ForkRepo(ctx context.Context, client *github.Client, owner, repo string) error {
+func forkRepo(ctx context.Context, client *github.Client, owner, repo string) error {
 	_, resp, err := client.Repositories.CreateFork(ctx, owner, repo, &github.RepositoryCreateForkOptions{})
 	if resp != nil && resp.StatusCode == 202 {
 		return nil
