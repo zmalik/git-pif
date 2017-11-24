@@ -20,6 +20,19 @@ The `git pif` does all the next steps:
 
 
 
+
+## Installation:
+
+If you have Go setup in your machine
+
+```
+go install github.com/zmalik/git-pif
+```
+
+Or 
+
+Download the binary from the latest release: https://github.com/zmalik/git-pif/releases
+
 ## Example:
 
 Check out to a new branch in the repo where you want to open a new PR
@@ -90,7 +103,7 @@ But I made it out specially for **Go** developers. As in case of **Go** the path
 
 ## Configuration
 
-`git pif` needs an environment variable. `GITHUB_TOKEN` The github personal API token is used to fork the repository. 
+`git pif` needs an environment variable. `GITHUB_TOKEN` The github personal API token is used to get the current user information and fork the repository. 
 
 There are two ways to setting it:
 
@@ -106,7 +119,7 @@ GITHUB_TOKEN : mygithubtoken
 
 ## Basic rules AKA best practices
 
-- Mixing up the branches in the fork and origin is prohibited. That means:
-  - using master branch to push in the fork is prohibited. 
-  - pushing a branch that exists in origin is prohibited
+- Mixing up the branches in the fork and origin is not possible. That means:
+  - using master branch to push in the fork is not possible with git pif. 
+  - pushing a branch that exists in origin is not possible with git pif.
 
