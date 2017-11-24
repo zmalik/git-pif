@@ -10,7 +10,7 @@
 
 git pif is a simple utility to increase collaboration across github. 
 
-It simplifies the process of forking a repo. Cloning it. Pushing commits to it. Only step left for user is to create a PR to original Repo.
+It simplifies the process of forking a repo. And pushing commits to it. Only step left for user is to create a PR to original Repo.
 
 The `git pif` does all the next steps:
 
