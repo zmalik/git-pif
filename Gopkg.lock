@@ -75,7 +75,7 @@
 
 [[projects]]
   name = "github.com/smartystreets/goconvey"
-  packages = [".","convey","convey/gotest","convey/reporting","web/server/api","web/server/contract","web/server/executor","web/server/messaging","web/server/parser","web/server/system","web/server/watch"]
+  packages = ["convey","convey/gotest","convey/reporting"]
   revision = "9e8dc3f972df6c8fcc0375ef492c24d0bb204857"
   version = "1.6.3"
 
@@ -152,6 +152,12 @@
   version = "v1.0.0"
 
 [[projects]]
+  branch = "v1"
+  name = "gopkg.in/jarcoal/httpmock.v1"
+  packages = ["."]
+  revision = "cf52904a3cf0f78f199ecade6a6df8e245d5b25a"
+
+[[projects]]
   branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
@@ -160,6 +166,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "911b24d1b08ee19079306661fb4955fd912c703513f1f98bde522db99ea1279b"
+  inputs-digest = "47a090edce7e8de8622cc64a98a3629bfe18f83825fd27c37dbb6eb5796c907e"
   solver-name = "gps-cdcl"
   solver-version = 1
