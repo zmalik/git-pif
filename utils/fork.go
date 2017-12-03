@@ -11,12 +11,15 @@ import (
 	"regexp"
 	"strings"
 	"time"
+	"github.com/spf13/viper"
 )
+
+const timeoutPolling = "GIT_PIF_TIMEOUT_POLLING"
 
 func CreateFork() (owner, repo, userLogin string, err error) {
 	origin, err := gitconfig.OriginURL()
 	if err != nil {
-		return "", "", "", errors.New("Not a git repository (or any of the parent directories): .git")
+		return "", "", "", errors.New("not a git repository (or any of the parent directories): .git")
 	}
 	owner, repo, err = ParseUpstreamURL(origin)
 	if err != nil {
@@ -41,7 +44,7 @@ func CreateFork() (owner, repo, userLogin string, err error) {
 		err = forkRepo(ctx, client, owner, repo)
 		if err == nil {
 			gitconfig.OriginURL()
-			_, err := pollRepo(ctx, client, user.GetLogin(), repo, 5*time.Minute)
+			_, err := pollRepo(ctx, client, user.GetLogin(), repo)
 			if err == nil {
 				fmt.Printf("Fork %s/%s created successfully.\n", user.GetLogin(), repo)
 			} else {
@@ -55,8 +58,8 @@ func CreateFork() (owner, repo, userLogin string, err error) {
 	return owner, repo, user.GetLogin(), err
 }
 
-func pollRepo(ctx context.Context, client *github.Client, owner, repo string, duration time.Duration) (bool, error) {
-	timeout := time.After(duration)
+func pollRepo(ctx context.Context, client *github.Client, owner, repo string) (bool, error) {
+	timeout := time.After(getTimeOutInMs())
 	tick := time.Tick(5 * time.Second)
 	for {
 		select {
@@ -71,6 +74,16 @@ func pollRepo(ctx context.Context, client *github.Client, owner, repo string, du
 		}
 	}
 
+}
+func getTimeOutInMs() time.Duration {
+	polling := viper.Get(timeoutPolling)
+	if polling != nil{
+		duration, _ := time.ParseDuration(polling.(string))
+		if duration.Nanoseconds() > 0 {
+			return duration
+		}
+	}
+	return 5 * time.Minute
 }
 
 //Fork the repo from the given owner and repo
